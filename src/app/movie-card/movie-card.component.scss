@@ -1,0 +1,15 @@
+.movieImage {
+  max-height: 350px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 768px) {
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+}

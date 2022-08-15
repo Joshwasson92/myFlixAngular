@@ -1,0 +1,36 @@
+<div>
+  <mat-card class="user-page">
+    <mat-card-title>Profile</mat-card-title>
+  </mat-card>
+  <mat-card-content>
+    <p>Username: {{ user.Username }}</p>
+    <p>Email: {{ user.Email }}</p>
+    <p>Birthday: {{ user.Birthday | date }}</p>
+  </mat-card-content>
+
+  <button
+    mat-raised-button
+    color="primary"
+    style="margin: 15px"
+    (click)="openUserUpdateDialog()"
+  >
+    Edit
+  </button>
+  <button
+    mat-raised-button
+    color="accent"
+    style="margin: 15px"
+    (click)="back()"
+  >
+    Back
+  </button>
+
+  <button
+    mat-raised-button
+    color="warn"
+    style="margin: 15px"
+    (click)="deleteUser()"
+  >
+    Delete Account
+  </button>
+</div>
