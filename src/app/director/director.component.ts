@@ -7,6 +7,9 @@ import { Inject } from '@angular/core';
   templateUrl: './director.component.html',
   styleUrls: ['./director.component.scss'],
 })
+/**
+ * Class that injects movie.director information for the corresponding director.
+ */
 export class DirectorComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA)

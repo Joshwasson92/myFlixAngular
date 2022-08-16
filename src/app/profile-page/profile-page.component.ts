@@ -4,6 +4,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserRegistrationService } from '../fetch-api-data.service';
 import { MatDialogRef } from '@angular/material/dialog';
 
+/**
+ * This is the class for editing a user profile.
+ */
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -22,6 +25,9 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * this function makes an API call to update the users Username, Password, Email or Birthday.
+   */
   editUser(): void {
     console.log(this.user);
     this.fetchApiData.editUser(this.user).subscribe((result) => {

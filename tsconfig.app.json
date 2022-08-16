@@ -3,13 +3,14 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "normalTypeScriptOptions": "here"
   },
-  "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
-  ],
-  "include": [
-    "src/**/*.d.ts"
-  ]
+  "files": ["src/main.ts", "src/polyfills.ts"],
+  "include": ["src/**/*.d.ts"],
+  "typedocOptions": {
+    // Comments are supported, like tsconfig.json
+    "entryPoints": ["main.ts"],
+    "out": "docs"
+  }
 }

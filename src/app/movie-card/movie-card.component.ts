@@ -11,6 +11,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
 })
+
+/**
+ * This is the Class for seeing movie data.
+ */
 export class MovieCardComponent {
   movies: any[] = [];
   favoriteMovies: any[] = [];
@@ -22,25 +26,16 @@ export class MovieCardComponent {
     public snackBar: MatSnackBar
   ) {}
 
-  // checkFavorites(_id: any) {
-  //   const favoriteMovies = this.favoriteMovies;
-
-  //   const movies = this.movies;
-  //   let isFavorite: boolean = false;
-
-  //   movies.forEach((_id) => {
-  //     console.log(this.favoriteMovies);
-
-  //     if (favoriteMovies.some((_id) => favoriteMovies.includes(_id)))
-  //       isFavorite = true;
-  //   });
-  // }
-
   ngOnInit(): void {
     this.getMovies();
     this.getFavoriteMovies();
   }
 
+  /**
+   * API call for the movies collection
+   * @returns Movies Collection.
+
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -48,6 +43,11 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * API call to retrieve the users favorite movies.
+   * @return Users Favorite Movies array
+
+   */
   getFavoriteMovies(): void {
     this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
       this.favoriteMovies = resp;
@@ -56,10 +56,10 @@ export class MovieCardComponent {
     });
   }
 
-  // isFavorite(id: string): boolean {
-  //   return this.favoriteMovies.includes(id);
-  // }
-
+  /**
+   * Opens a dialog to view the movie genre information
+   * @param name:string, description:string
+   */
   viewGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
       data: {
@@ -70,6 +70,10 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Opens a dialog to view the directors information
+   * @param name:string, bio:string, birthday:Date
+   */
   viewDirectorDialog(name: string, bio: string, birthday: Date): void {
     this.dialog.open(DirectorComponent, {
       data: {
@@ -81,6 +85,10 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Opens a dialog to view the movies description.
+   * @param title:string, description:string
+   */
   viewMovieDescDialog(title: string, description: string): void {
     this.dialog.open(MovieDescComponent, {
       data: {
@@ -91,6 +99,11 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Makes an API call to the database to add a movie to the users favorite movies array and then opens a notification that a movie has been added.
+   * @param _id:string
+   * @returns Users Favorite Movies array
+   */
   addFavoriteMovie(_id: string): void {
     this.fetchApiData.addFavoriteMovies(_id).subscribe((resp: any) => {
       this.favoriteMovies = resp;
@@ -101,7 +114,11 @@ export class MovieCardComponent {
       duration: 2000,
     });
   }
-
+  /**
+   * Makes an API call to the database to remove a movie to the users favorite movies array and then opens a notification that a movie has been removed.
+   * @param _id:string
+   * @returns Users Favorite Movies array.
+   */
   removeFavoriteMovie(_id: string): void {
     this.fetchApiData.deleteFavoriteMovie(_id).subscribe((resp: any) => {
       this.favoriteMovies = resp;

@@ -8,6 +8,9 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+/**
+ * This is an HTTP interceptor, it ijects every call with a header containing the JWT bearer token.
+ */
 @Injectable()
 export class TokenInterceptorService implements HttpInterceptor {
   constructor() {}

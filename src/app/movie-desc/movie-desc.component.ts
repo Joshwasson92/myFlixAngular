@@ -6,6 +6,10 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './movie-desc.component.html',
   styleUrls: ['./movie-desc.component.scss'],
 })
+
+/**
+ * This is the Class for movie description. It injects the title and description on initilization.
+ */
 export class MovieDescComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA)

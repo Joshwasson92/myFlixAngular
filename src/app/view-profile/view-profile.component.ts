@@ -23,6 +23,9 @@ export class ViewProfileComponent implements OnInit {
     this.getUserProfile();
   }
 
+  /**
+   * Makes API call to fetch user information
+   */
   getUserProfile(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
@@ -31,6 +34,9 @@ export class ViewProfileComponent implements OnInit {
     });
   }
 
+  /**
+   *Opens the dialog page for viewing the users profile.
+   */
   openUserUpdateDialog(): void {
     console.log(this.user);
     this.dialog.open(ProfilePageComponent, {
@@ -38,10 +44,18 @@ export class ViewProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Back button to navigate back to movies
+   * {@link[/movies]}
+   */
   back(): void {
     this.router.navigate(['/movies']);
   }
 
+  /**
+   *  boolean
+   * after confirming to delete account, account is deleted then navigates back to Welcome Screen
+   */
   deleteUser(): void {
     if (
       confirm(

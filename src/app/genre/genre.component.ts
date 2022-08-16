@@ -7,6 +7,9 @@ import { Inject } from '@angular/core';
   templateUrl: './genre.component.html',
   styleUrls: ['./genre.component.scss'],
 })
+/**
+ * Class that injects movie.genre information for the corresponding genre.
+ */
 export class GenreComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA)

@@ -15,6 +15,10 @@ import { Router } from '@angular/router';
   templateUrl: './user-login-form.component.html',
   styleUrls: ['./user-login-form.component.scss'],
 })
+
+/**
+ * Class for user login.
+ */
 export class UserLoginFormComponent implements OnInit {
   @Input() userData = { Password: '', Username: '' };
   constructor(
@@ -26,6 +30,10 @@ export class UserLoginFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * @params this.user
+   *  API call after hitting submit on user login, also adds a token and user to localstorage.
+   */
   userLogin(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
       (result) => {
